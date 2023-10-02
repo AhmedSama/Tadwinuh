@@ -1,0 +1,77 @@
+/* SelectOption.scss */
+.custom-select {
+    position: relative;
+    cursor: pointer;
+    input{
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      outline: none;
+      border: none;
+      font-size: 17px;
+    }
+    .selected-option {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #fff;
+      user-select: none;
+      justify-content: space-between;
+      svg{
+        font-size: 20px;
+      }
+    }
+    
+    .options {
+      position: absolute;
+      box-shadow: 7px 7px 10px #ccc;
+      z-index: 1000;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-top: none;
+      border-radius: 0 0 5px 5px;
+      max-height: 300px;
+      overflow-y: auto;
+      background-color: #fff;
+      display: none;
+      list-style: none;
+      padding: 0;
+  
+      &.open {
+        display: block;
+      }
+      
+      li {
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        svg{
+            font-size: 20px;
+        }
+        &.active{
+            background: linear-gradient(90deg, rgba(71,141,230,1) 0%, rgba(0,134,255,1) 35%, rgba(0,211,255,1) 100%);
+            ;
+            ;
+            
+            color: $light;
+        }
+        &:hover:not(.active) {
+          background-color: #f0f0f0;
+        }
+      }
+    }
+    &.open{
+        .options{
+            display: block;
+        }
+    }
+  }
+  

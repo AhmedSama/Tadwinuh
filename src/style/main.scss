@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+
+@import "variables";
+@import "ListItem";
+@import "Input";
+@import "SelectOptions";
+// @tailwind base;
+// @tailwind components;
+// @tailwind utilities;
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.hide{
+    display: none!important;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+}
+body[lang="ar"] {
+    font-family: 'Rubik', sans-serif;
+}
+body[data-theme="dark"]{
+    color: $light;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+
+.flex{
+    display: flex;
+}
+.align-center{
+    align-items: center;
+}
+.justify-center{
+    justify-content: center;
+}
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 2px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+// sidebar
+.sidebar{
+    overflow-y: scroll;
+    position: relative;
+}
+.sidebar-header{
+    display: flex;
+    align-items: center;
+    position: relative;
+    .sidebar-header-text{
+        width: 100%;
+        text-align: center;
+    }
+    svg{
+        font-size: 25px;
+    }
+}
+.sidebar-toggle-icon{
+    position: absolute;
+    left: 10px;
+}
+.sidebar-footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}

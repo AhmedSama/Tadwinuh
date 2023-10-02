@@ -1,0 +1,50 @@
+:root{
+    // define main colors
+    --gray : #EDEDED;
+    --light : #fff;
+    --blue : #0057FF;
+    --dark : #1E1E1E;
+    --dark-active : #232832;
+    --gold: #D4AF37;
+    --gold-1 : #FFB300;
+
+    // define light theme colors
+    --menu-text-color : var(--dark);
+    --menu-active-text-color : var(--light);
+    --submenu-active-background : var(--gray);
+    --icon-color : var(--blue);
+    --menu-item-active-background : var(--blue);
+    --icon-active-color : var(--light);
+    --left-bar-color : var(--blue);
+}
+
+[data-theme="dark"]{
+    --menu-text-color : var(--light);
+    --menu-active-text-color : var(--light);
+    --submenu-active-background : var(--dark-active);
+    --icon-color : var(--blue);
+    --menu-item-active-background : var(--dark-active);
+    --icon-active-color : var(--light);
+    --left-bar-color : var(--blue);
+}
+[data-theme="gold"]{
+    --menu-text-color : var(--light);
+    --menu-active-text-color : var(--light);
+    --submenu-active-background : var(--dark-active);
+    --icon-color : var(--gold);
+    --menu-item-active-background : var(--gold);
+    --icon-active-color : var(--light);
+    --left-bar-color : var(--gold);
+}
+
+$blue : var(--blue);
+$light : var(--light);
+$menu-text-color : var(--menu-text-color);
+$submenu-active-background : var(--submenu-active-background);
+$menu-active-text-color : var(--menu-active-text-color);
+$icon-color : var(--icon-color);
+$menu-item-active-background : var(--menu-item-active-background);
+$icon-active-color : var(--icon-active-color);
+$left-bar-color : var(--left-bar-color);
+
+

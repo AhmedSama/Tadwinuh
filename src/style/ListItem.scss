@@ -1,0 +1,60 @@
+
+.list-item{
+    border-radius: 3px;
+    cursor: pointer;
+    // background-color: $menu-background;
+    padding: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .icon-text{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .icon{
+        color: $icon-color;
+    }
+    .arrow-icon{
+        color: $menu-text-color;
+    }
+    .text{
+        color: $menu-text-color;
+    }
+    &.active{
+        background-color: $menu-item-active-background;
+        margin-left: 10px;
+        
+        .text,.arrow-icon{
+            color: $menu-active-text-color;
+        }
+        .icon{
+            color: $icon-active-color;
+        }
+        .active-left-bar{
+            position: absolute;
+            background-color: $left-bar-color;
+            border-radius: 10px;
+            width: 2px;
+            height: 75%;
+            left: -5px;
+        }
+    }
+    
+}
+
+.sub-menu{
+    margin-left: 10px;
+    .list-item{
+        &.active{
+            background-color: $submenu-active-background;
+            .arrow-icon,.text{
+                color: $menu-text-color;
+            }
+            .icon{
+                color: $menu-text-color;
+            }
+        }
+    }
+}
