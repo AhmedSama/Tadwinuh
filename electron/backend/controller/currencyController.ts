@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 
-export function getAllCurrencies(req:Request,res:Response){
+// if you don't use a varibale you have to remove it or change its name to _ 
+export function getAllCurrencies(_:Request,res:Response){
     res.json({hello:"currency"})
 }
 export function getOneCurrency(req:Request,res:Response){
