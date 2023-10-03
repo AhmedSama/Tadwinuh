@@ -1,6 +1,7 @@
 import { app, BrowserWindow } from 'electron'
 import path from 'node:path'
-
+import expressApp from "./backend/main"
+const port = 3000
 // The built directory structure
 //
 // ├─┬─┬ dist
@@ -58,4 +59,9 @@ app.on('activate', () => {
   }
 })
 
-app.whenReady().then(createWindow)
+app.whenReady().then(()=>{
+  createWindow()
+  expressApp.listen(port, () => {
+    console.log(`Tadwinuh server listening on port ${port}`)
+  })
+})

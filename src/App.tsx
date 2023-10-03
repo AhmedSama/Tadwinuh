@@ -103,9 +103,13 @@ function App() {
               </div>
             </div>
         </div>
-        {/* <SelectOption labelText={"Currency"} onSelect={handleSelect} options={currencyOptions} />
-        <Input onChange={handleChange} type="text" placeholder="add text..." labelText={"Buy"} /> */}
+        <div className="main">
+          <p>in progress....</p>
+            <SelectOption labelText={"Currency"} onSelect={handleSelect} options={currencyOptions} />
+            <Input onChange={handleChange} type="text" placeholder="add text..." labelText={"Buy"} />
+        </div>
       </div>
+          
     </div>
       
     
