@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import { store } from './store/store.ts'
 import { Provider } from 'react-redux'
-import './style/main.scss'
+import './style/mainStyle.scss'
 import {BrowserRouter,Routes,Route} from "react-router-dom"
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
