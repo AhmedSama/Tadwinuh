@@ -23,7 +23,7 @@ const ListItem = ({text,icon,children,onClicked,active} : ListItemType) => {
   return (
     <>
     {/* handle click here and from the ...rest */}
-    <li  onClick={handleClick}  className={`list-item ${ active ? "active" : ""}`}>
+    <li  onClick={handleClick}  className={`list-item ${ active || show ? "active" : ""}`}>
         <div className="icon-text">
             <div className="active-left-bar"></div>
             <div className="icon center">

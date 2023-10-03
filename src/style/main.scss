@@ -32,7 +32,108 @@ li{
 a{
     text-decoration: none;
 }
+.layout{
+    display: flex;
+    align-items: stretch;
+    // sidebar
+    .sidebar{
+        overflow-y: scroll;
+        position: relative;
+        .sidebar-header{
+            display: flex;
+            align-items: center;
+            position: relative;
+            background-color: #EDEDED;
+            height: 50px;
+            .sidebar-header-text{
+                width: 100%;
+                text-align: center;
+            }
+            svg{
+                font-size: 25px;
+            }
+        }
+        .sidebar-toggle-icon{
+            position: absolute;
+            left: 10px;
+        }
+        .sidebar-footer{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    }
+    .hero{
+        flex: 1;
+        .hero-header{
+            height: 50px;
+            background-color: #EDEDED;
+            display: flex;
+            justify-content: space-between;
+            padding: 5px;
+            .search-input{
+                border: 1px solid #E2E2E2;
+                background-color: white;
+                display: flex;
+                align-items: center;
+                padding: 0px 15px;
+                border-radius: 100px;
+                input{
+                    border: none;
+                    outline: none;
+                    padding: 5px;
+                    font-size: 17px;
+                    flex: 1;
+                }
+            }
+            .user-info{
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                .notification{
+                    position: relative;
+                    padding: 5px;
+                    border: 1px solid $blue;
+                    border-radius: 5px;
+                    background-color: white;
+                    &::after{
+                        content: "";
+                        position: absolute;
+                        height: 5px;
+                        width: 5px;
+                        background-color: red;
+                        border-radius: 50%;
+                        top: 6px;
+                        right: 6px;
+                        z-index: 10000;
 
+                    }
+                    svg{
+                        color: $blue;
+                        font-size: 20px;
+                    }
+                }
+                .user{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    .user-name{
+
+                    }
+                    .user-img{
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+        .main{
+
+        }
+    }
+}
 .flex{
     display: flex;
 }
@@ -67,29 +168,4 @@ a{
     background: #555;
   }
 
-// sidebar
-.sidebar{
-    overflow-y: scroll;
-    position: relative;
-}
-.sidebar-header{
-    display: flex;
-    align-items: center;
-    position: relative;
-    .sidebar-header-text{
-        width: 100%;
-        text-align: center;
-    }
-    svg{
-        font-size: 25px;
-    }
-}
-.sidebar-toggle-icon{
-    position: absolute;
-    left: 10px;
-}
-.sidebar-footer{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
+
