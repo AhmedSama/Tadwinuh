@@ -1,4 +1,3 @@
-import { useState } from "react"
 import ListItem from "./components/ListItem"
 import {BsCurrencyExchange,BsFillMoonFill,BsSunFill} from "react-icons/bs"
 import {CgMenuLeft} from "react-icons/cg"
