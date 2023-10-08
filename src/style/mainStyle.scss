@@ -78,6 +78,7 @@ a{
                 align-items: center;
                 padding: 0px 15px;
                 border-radius: 100px;
+                width: 500px;
                 input{
                     border: none;
                     outline: none;
@@ -90,6 +91,7 @@ a{
                 display: flex;
                 align-items: center;
                 gap: 15px;
+                
                 .notification{
                     position: relative;
                     padding: 5px;

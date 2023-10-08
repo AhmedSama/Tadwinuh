@@ -1,15 +1,24 @@
 import { Request, Response } from "express";
-
+import { PrismaClient } from "@prisma/client";
+const prisma = new PrismaClient()
 // if you don't use a varibale you have to remove it or change its name to _ 
-export function getAllCurrencies(_:Request,res:Response){
-    res.json({hello:"currency"})
+export async function getAllCurrencies(_:Request,res:Response){
+    res.json(await prisma.user.findMany())
 }
-export function getOneCurrency(req:Request,res:Response){
-    const id = req.params.id
-    res.json({currencyId:id})
+export async function getOneCurrency(req:Request,res:Response){
+    const id =parseInt(req.params.id) 
+    const curr = await prisma.user.findFirst({
+        where : {
+            id : id
+        }
+    })
+    res.json(curr)
 }
 
-export function addOneCurrency(req:Request,res:Response){
-    const id = req.params.id
-    res.json({currencyId:id,state:"added"})
+export async function addOneCurrency(req:Request,res:Response){
+    const userData = req.body
+    const curr = await prisma.user.create({
+        data : userData
+    })
+    res.json(curr)
 }

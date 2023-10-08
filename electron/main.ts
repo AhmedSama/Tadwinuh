@@ -1,7 +1,7 @@
 import { app, BrowserWindow } from 'electron'
 import path from 'node:path'
 import expressApp from "./backend/main"
-const port = 3000
+const port = 3424
 // The built directory structure
 //
 // ├─┬─┬ dist

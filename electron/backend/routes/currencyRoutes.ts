@@ -11,6 +11,6 @@ app.get("/",getAllCurrencies)
 app.get("/:id",getOneCurrency) 
 
 // add currency
-app.post("/:id",addOneCurrency)
+app.post("/",addOneCurrency)
 
 export default app

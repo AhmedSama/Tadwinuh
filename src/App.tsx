@@ -10,6 +10,9 @@ import { setTheme } from "./store/slices/themeSlice"
 import Input from "./components/Input"
 import SelectOption from "./components/SelectOption"
 import girl from "./assets/girl.jpg"
+import axios from "axios"
+import { useState } from "react"
+import { isNamedExports } from "typescript"
 
 const currencyOptions = [
   'IQD - Iraqi Dinnar',
@@ -29,7 +32,8 @@ const currencyOptions = [
 function App() {
   const theme = useSelector((state:RootState) => state.theme)
   const dispatch = useDispatch()
-
+  const [name,setName] = useState("")
+  const [email,setEmail] = useState("")
   function toggleTheme(theme:string) {
     dispatch(setTheme(theme))
   }
@@ -38,6 +42,13 @@ function App() {
   };
   function handleChange(text:string){
     console.log(text)
+  }
+  async function send(){
+    const res = await axios.post("http://localhost:3000/api/currency/",{
+      name,
+      email
+    })
+    console.log(res.data)
   }
 // FFB300
   return (
@@ -108,7 +119,9 @@ function App() {
             <Input onChange={handleChange} type="text" placeholder="add text..." labelText={"Buy"} />
         </div>
       </div>
-          
+          <input type="text" value={name} onChange={(e)=>setName(e.target.value)} placeholder="name..." />
+          <input type="text" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder="email..." />
+          <button onClick={send}>send request</button>
     </div>
       
     

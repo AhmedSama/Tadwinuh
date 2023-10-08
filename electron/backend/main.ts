@@ -3,7 +3,7 @@ import currencyRoutes from "./routes/currencyRoutes"
 
 const expressApp = express()
 
-
+expressApp.use(express.json())
 // http://localhost:3000/api/currency/
 expressApp.use("/api/currency/",currencyRoutes)
 
