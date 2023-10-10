@@ -1,29 +1,30 @@
 import React, { useState } from "react"
 import {IoIosArrowDown,IoIosArrowUp} from "react-icons/io"
+import { Link } from "react-router-dom"
 type ListItemType = {
     text : string,
     icon : React.ReactNode,
     children? : React.ReactNode,
-    onClicked? : () => void,
+    onClicked? : (text:string) => void,
     active? : boolean,
+    to? : string
 }
 
-const ListItem = ({text,icon,children,onClicked,active} : ListItemType) => {
+const ListItem = ({text,icon,children,onClicked,active,to} : ListItemType) => {
 
     const [show,setShow] = useState(false)
-
-    function handleClick(){
+    function handleClick(text:string){
       if(children){
           setShow(!show)
       }
       if(onClicked){
-        onClicked()
+        onClicked(text)
       }
     }
   return (
+    
     <>
-    {/* handle click here and from the ...rest */}
-    <li  onClick={handleClick}  className={`list-item ${ active || show ? "active" : ""}`}>
+    <li  onClick={() => handleClick(text)}  className={`list-item ${ active || show ? "active" : ""}`}>
         <div className="icon-text">
             <div className="active-left-bar"></div>
             <div className="icon center">

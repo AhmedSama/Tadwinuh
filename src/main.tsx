@@ -4,16 +4,11 @@ import App from './App.tsx'
 import { store } from './store/store.ts'
 import { Provider } from 'react-redux'
 import './style/mainStyle.scss'
-import {BrowserRouter,Routes,Route} from "react-router-dom"
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/'  element={<App />}/>
-        </Routes>
-      </BrowserRouter>
+      <App />
     </Provider>
   </React.StrictMode>,
 )
