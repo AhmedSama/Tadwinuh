@@ -5,6 +5,10 @@
 @import "Input";
 @import "SelectOptions";
 @import "sells";
+@import "table";
+@import "SellCurrencyFastEntry";
+@import "TransactionCurrencies";
+
 // @tailwind base;
 // @tailwind components;
 // @tailwind utilities;
@@ -20,6 +24,7 @@
 }
 body{
     font-family: 'Inder', sans-serif;
+   
 }
 body[lang="ar"] {
     font-family: 'Rubik', sans-serif;
@@ -32,6 +37,9 @@ li{
 }
 a{
     text-decoration: none;
+}
+hr{
+    border: 1px solid #D9D9D9;
 }
 textarea {
     resize: vertical;
@@ -200,6 +208,9 @@ textarea {
 .p{
     padding: 1rem;
 }
+.mt{
+    margin-top: 10px;
+}
 .main-actions{
     display: flex;
     align-items: center;
@@ -217,6 +228,10 @@ textarea {
     font-weight: 400;
     color: #A0A0A0;
     padding-bottom: 5px;
+}
+.btlr{
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
 }
 /* width */
 ::-webkit-scrollbar {

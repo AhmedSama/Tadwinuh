@@ -1,0 +1,17 @@
+.title-header{
+    background-color: $blue;
+    color: white;
+    padding: 10px;
+    p{
+        font-size: 13px;
+    }
+}
+.input-fields-container{
+    padding: 1rem 4rem;
+    background-color: white;
+    .input-fields{
+        display: flex;
+        align-items: flex-end;
+        gap: 10px;
+    }
+}

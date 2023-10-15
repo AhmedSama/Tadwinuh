@@ -14,6 +14,15 @@ import axios from "axios"
 import { useState } from "react"
 import Sells from "./pages/Sells"
 import Tree, { pagesType } from "./components/Tree"
+import Table from "./components/Table"
+import { SellCurrencyFastEntry } from "./pages/SellCurrencyFastEntry"
+import TransactionCurrencies from "./pages/TransactionCurrencies"
+import OutwardCashTransfer from "./pages/OutwardCashTransfer"
+import MultipleIncoming from "./pages/MultipleIncoming"
+import MultipleOutcoming from "./pages/MultipleOutcoming"
+import CatchReceipt from "./pages/CatchReceipt"
+import ViewConversionDocument from "./pages/ViewConversionDocument"
+import SplitedTable from "./components/SplitedTable"
 
 const currencyOptions = [
   'IQD - Iraqi Dinnar',
@@ -203,7 +212,7 @@ function App() {
                 </div>
           </div>
           <div className="main-container">
-              <Sells />
+              <SplitedTable />
             <div className="main-actions p">
                 <button className="btn">Save</button>
                 <button className="btn secondary">New</button>
