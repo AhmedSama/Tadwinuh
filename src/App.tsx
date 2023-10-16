@@ -219,7 +219,7 @@ function App() {
                 </div>
           </div>
           <div className="main-container">
-              <User />
+              <Sells />
             <div className="main-actions p">
                 <button className="btn">Save</button>
                 <button className="btn secondary">New</button>

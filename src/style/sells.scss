@@ -1,11 +1,12 @@
 .sells-main-container{
     width: 100%;
     background-color: white;
-    padding: 40px 100px;
+    padding: 40px 60px;
     form{
         display: flex;
         flex-direction: column;
         gap: 15px;
+        width: 550px;
     }
 }
 
