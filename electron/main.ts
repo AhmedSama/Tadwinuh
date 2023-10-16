@@ -1,7 +1,7 @@
 import { app, BrowserWindow } from 'electron'
 import path from 'node:path'
-import expressApp from "./backend/main"
-const port = 3424
+// import expressApp from "./backend/src/index"
+// const port = 6330                                             
 // The built directory structure
 //
 // ├─┬─┬ dist
@@ -21,7 +21,7 @@ const VITE_DEV_SERVER_URL = process.env['VITE_DEV_SERVER_URL']
 
 function createWindow() {
   win = new BrowserWindow({
-    icon: path.join(process.env.VITE_PUBLIC, 'electron-vite.svg'),
+    icon: path.join(process.env.VITE_PUBLIC, 'logo.jpg'),
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
     },
@@ -61,7 +61,7 @@ app.on('activate', () => {
 
 app.whenReady().then(()=>{
   createWindow()
-  expressApp.listen(port, () => {
-    console.log(`Tadwinuh server listening on port ${port}`)
-  })
+  // expressApp.listen(port, () => {
+  //   console.log(`Tadwinuh server listening on port ${port}`)
+  // })
 })

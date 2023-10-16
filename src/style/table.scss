@@ -1,0 +1,49 @@
+/* styles.css */
+
+/* Table styles */
+table {
+    border-collapse: collapse;
+    background: white;
+    width: 100%;
+  }
+  
+  /* Header cell styles */
+  th {
+    background: #0057FF;
+    color: white;
+    padding: 10px;
+    font-size: 13px;
+    font-weight: 300;
+  }
+  
+  
+  /* Row styles */
+  tr {
+    border-bottom: 1px solid #EDEDED;
+  }
+  thead.rounded{
+    tr{
+      th{
+        &:first-child{
+          border-top-left-radius: 10px;
+        }
+        &:last-child{
+          border-top-right-radius: 10px;
+        }
+      }
+    }
+  }
+
+  td {
+    text-align: center;
+    padding: 10px;
+    font-size: 11px;
+    
+  }
+  .trash{
+    cursor: pointer;
+    .delete-icon{
+        font-size: 15px;
+        color: #F55858;
+    }
+  }

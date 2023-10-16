@@ -58,5 +58,8 @@
     "vite-plugin-electron": "^0.14.0",
     "vite-plugin-electron-renderer": "^0.14.5"
   },
+  "prisma": {
+    "seed": "node --require esbuild-register ./electron/backend/prisma/seed.ts"
+  },
   "main": "dist-electron/main.js"
 }

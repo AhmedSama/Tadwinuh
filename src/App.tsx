@@ -1,18 +1,33 @@
 import ListItem from "./components/ListItem"
+import {useEffect} from 'react'
 import {BsCurrencyExchange,BsFillMoonFill,BsSunFill} from "react-icons/bs"
 import {CgMenuLeft} from "react-icons/cg"
 import {AiFillSetting} from "react-icons/ai"
 import {BsSearch} from 'react-icons/bs'
 import {IoMdNotifications} from 'react-icons/io'
+import {AiOutlinePrinter} from 'react-icons/ai'
 import { useDispatch, useSelector } from "react-redux"
 import type { RootState } from './store/store'
 import { setTheme } from "./store/slices/themeSlice"
-import Input from "./components/Input"
-import SelectOption from "./components/SelectOption"
 import girl from "./assets/girl.jpg"
 import axios from "axios"
 import { useState } from "react"
-import { isNamedExports } from "typescript"
+import Sells from "./pages/Sells"
+import Tree, { pagesType } from "./components/Tree"
+import Table from "./components/Table"
+import { SellCurrencyFastEntry } from "./pages/SellCurrencyFastEntry"
+import TransactionCurrencies from "./pages/TransactionCurrencies"
+import OutwardCashTransfer from "./pages/OutwardCashTransfer"
+import MultipleIncoming from "./pages/MultipleIncoming"
+import MultipleOutcoming from "./pages/MultipleOutcoming"
+import CatchReceipt from "./pages/CatchReceipt"
+import ViewConversionDocument from "./pages/ViewConversionDocument"
+import SplitedTable from "./components/SplitedTable"
+import TransferringCashFromCashierToTreasury from "./pages/TransferringCashFromCashierToTreasury"
+import AddCustomer from "./pages/AddCustomer"
+import User from "./pages/User"
+import Currency from "./pages/Currency"
+import ChangePassword from "./pages/ChangePassword"
 
 const currencyOptions = [
   'IQD - Iraqi Dinnar',
@@ -28,12 +43,111 @@ const currencyOptions = [
   'SGD - Singapore Dollar',
 ];
 
+const pagesData = [
+  {
+    name : "Buy and sell currencies",
+    isPage : false,
+    isActive : false,
+    icon : <BsCurrencyExchange />,
+    subPages : [
+      {
+        name : "Buy currencies",
+        isPage : true,
+        isActive : false,
+        icon : <BsCurrencyExchange />,
+        subPages : null
+      },
+      {
+        name : "Sell currencies",
+        isPage : true,
+        isActive : true,
+        icon : <BsCurrencyExchange />,
+        subPages : null
+      },
+      {
+        name : "Buy currencies quick add",
+        isPage : true,
+        isActive : false,
+        icon : <BsCurrencyExchange />,
+        subPages : null
+      },
+      {
+        name : "Sell currencies quick add",
+        isPage : true,
+        isActive : false,
+        icon : <BsCurrencyExchange />,
+        subPages : null
+      },
+      {
+        name : "Transaction currencies",
+        isPage : true,
+        isActive : false,
+        icon : <BsCurrencyExchange />,
+        subPages : null
+      },
+    ]
+  },
+  {
+    name : "Transaction",
+    isPage : false,
+    isActive : false,
+    icon : <BsCurrencyExchange />,
+    subPages : [
+
+    ]
+  },
+  {
+    name : "Cash",
+    isPage : false,
+    isActive : false,
+    icon : <BsCurrencyExchange />,
+    subPages : [
+
+    ]
+  },
+  {
+    name : "Add user",
+    isPage : false,
+    isActive : false,
+    icon : <BsCurrencyExchange />,
+    subPages : [
+
+    ]
+  },
+  {
+    name : "Financial reports",
+    isPage : false,
+    isActive : false,
+    icon : <BsCurrencyExchange />,
+    subPages : [
+
+    ]
+  },
+  {
+    name : "Exchange reports",
+    isPage : false,
+    isActive : false,
+    icon : <BsCurrencyExchange />,
+    subPages : [
+
+    ]
+  },
+  {
+    name : "Competitive reports",
+    isPage : false,
+    isActive : false,
+    icon : <BsCurrencyExchange />,
+    subPages : [
+
+    ]
+  }
+]
 
 function App() {
+  const [pages,setPages] = useState(pagesData)
+  const [currentPage,setCurrentPage] = useState<string|null>(null)
   const theme = useSelector((state:RootState) => state.theme)
   const dispatch = useDispatch()
-  const [name,setName] = useState("")
-  const [email,setEmail] = useState("")
   function toggleTheme(theme:string) {
     dispatch(setTheme(theme))
   }
@@ -43,16 +157,11 @@ function App() {
   function handleChange(text:string){
     console.log(text)
   }
-  async function send(){
-    const res = await axios.post("http://localhost:3000/api/currency/",{
-      name,
-      email
-    })
-    console.log(res.data)
-  }
+
 // FFB300
   return (
     <>
+    <div>{currentPage}</div>
     <div className="layout">
       <aside style={{background:theme === "dark" ? "#343943" : "#fff" ,width:300,height:"100vh"}} className="sidebar">
       
@@ -64,27 +173,9 @@ function App() {
           </div>
 
           <nav className="sidebar-nav">
-              <ul>
-                <ListItem text={"Buy and sell currencies"}  icon={<BsCurrencyExchange />}>
-                  <ListItem text={"Sell currencies"}  icon={<BsCurrencyExchange />} />
-                  <ListItem text={"Buy currencies quick add"}  icon={<BsCurrencyExchange />} />
-                  <ListItem text={"Sell currencies quick add"}  icon={<BsCurrencyExchange />}>
-                    <ListItem text={"Buy currencies"}  icon={<BsCurrencyExchange />} />
-                    <ListItem text={"Sell currencies"}  icon={<BsCurrencyExchange />}>
-                      <ListItem text={"Buy currencies"}  icon={<BsCurrencyExchange />} />
-                      <ListItem text={"Sell currencies"}  icon={<BsCurrencyExchange />} />
-                    </ListItem>
-                    <ListItem text={"Buy currencies quick add"}  icon={<BsCurrencyExchange />} />
-                  </ListItem>
-                  <ListItem text={"Transaction currencies"}  icon={<BsCurrencyExchange />} />
-              </ListItem>
-              <ListItem text={"Transaction"}  icon={<BsCurrencyExchange />} />
-              <ListItem text={"Cash "}  icon={<BsCurrencyExchange />} />
-              <ListItem text={"Add user"}  icon={<BsCurrencyExchange />} />
-              <ListItem text={"Financial reports"}  icon={<BsCurrencyExchange />} />
-              <ListItem text={"Exchange reports"}  icon={<BsCurrencyExchange />} />
-              <ListItem text={"Competitive reports"}  icon={<BsCurrencyExchange />} />
-              </ul>
+            {
+              <Tree setPage={(text:string) => setCurrentPage(text)} page={currentPage} items={pages} />
+            }
           </nav>
 
           <div className="sidebar-footer">
@@ -109,19 +200,33 @@ function App() {
               </div>
               <div className="user">
                 <p className="user-name">Tadwinuh HR</p>
-                <img className="user-img" src={girl} alt="" />
+                <div style={{width:40,height:40,overflow:"hidden"}}>
+                  <img className="user-img" src={girl} alt="" />
+                </div>
               </div>
             </div>
         </div>
         <div className="main">
-          <p>in progress....</p>
-            <SelectOption labelText={"Currency"} onSelect={handleSelect} options={currencyOptions} />
-            <Input onChange={handleChange} type="text" placeholder="add text..." labelText={"Buy"} />
+          <div className="main-header">
+                <div className="main-title">
+                  <h2>Sells</h2>
+                </div>
+                <div className="main-actions">
+                  <button className="btn">Previous bonds</button>
+                  <button className="btn">print
+                  <AiOutlinePrinter />
+                  </button>
+                </div>
+          </div>
+          <div className="main-container">
+              <Sells />
+            <div className="main-actions p">
+                <button className="btn">Save</button>
+                <button className="btn secondary">New</button>
+              </div>
+          </div>
         </div>
       </div>
-          <input type="text" value={name} onChange={(e)=>setName(e.target.value)} placeholder="name..." />
-          <input type="text" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder="email..." />
-          <button onClick={send}>send request</button>
     </div>
       
     

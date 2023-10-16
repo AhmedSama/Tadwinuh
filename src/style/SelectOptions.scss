@@ -1,26 +1,31 @@
 /* SelectOption.scss */
 .custom-select {
     position: relative;
+    width: 100%;
+    flex: 1;
     cursor: pointer;
-    input{
-      padding: 10px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      width: 100%;
-      outline: none;
-      border: none;
-      font-size: 17px;
-    }
     .selected-option {
       display: flex;
       align-items: center;
-      padding: 10px;
-      border: 1px solid #ccc;
+      font-weight: 500;
+      font-size: 17px;
+      // background-color: #F8F8F8;
+      border: 1px solid #D9D9D9;
       border-radius: 5px;
-      background-color: #fff;
-      user-select: none;
+      outline: none;
+      width: 100%;
       justify-content: space-between;
+      input{
+        width: 100%;
+        background-color: transparent;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        outline: none;
+        border: none;
+      }
       svg{
         font-size: 20px;
       }
@@ -57,7 +62,7 @@
             font-size: 20px;
         }
         &.active{
-            background: linear-gradient(90deg, rgba(71,141,230,1) 0%, rgba(0,134,255,1) 35%, rgba(0,211,255,1) 100%);
+            background: $blue;
             ;
             ;
             

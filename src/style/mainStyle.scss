@@ -1,9 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inder&display=swap');
 
 @import "variables";
 @import "ListItem";
 @import "Input";
 @import "SelectOptions";
+@import "sells";
+@import "table";
+@import "SellCurrencyFastEntry";
+@import "TransactionCurrencies";
+@import "SplitedTable";
+
 // @tailwind base;
 // @tailwind components;
 // @tailwind utilities;
@@ -18,7 +24,8 @@
     display: none!important;
 }
 body{
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inder', sans-serif;
+   
 }
 body[lang="ar"] {
     font-family: 'Rubik', sans-serif;
@@ -32,6 +39,12 @@ li{
 a{
     text-decoration: none;
 }
+hr{
+    border: 1px solid #D9D9D9;
+}
+textarea {
+    resize: vertical;
+  }
 .layout{
     display: flex;
     align-items: stretch;
@@ -115,25 +128,54 @@ a{
                         font-size: 20px;
                     }
                 }
-                .user{
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-
-                    .user-img{
-                        width: 40px;
-                        height: 40px;
-                        border-radius: 50%;
-                        object-fit: cover;
-                    }
-                }
+                
             }
         }
         .main{
             padding: 10px;
-            margin: 50px;
+            margin: 10px;
+            .main-header{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 10px 0;
+                
+                h2{
+                    font-weight: 400;
+                    position: relative;
+                    &::before{
+                        content: "";
+                        position: absolute;
+                        border-radius: 10px;
+                        width: 3px;
+                        top: 5px;
+                        bottom: 5px;
+                        left: -7px;
+                        background-color: $blue;
+                    }
+                }
+            }
+            .main-container{
+                border-radius: 5px;
+                border: 1px solid #D9D9D9;
+                width: 100%;
+                background-color: #F4F4F4;
+                padding:10px;
+            }
         }
     }
+}
+.user{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+.user-img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
 }
 .flex{
     display: flex;
@@ -148,6 +190,62 @@ a{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.btn{
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: white;
+    background-color: $blue;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    &.secondary{
+        color: $blue;
+        background-color: white;
+        border: 1px solid $blue;
+    }
+}
+.p{
+    padding: 1rem;
+}
+.p-container{
+    padding: 1rem 4rem
+}
+.mt{
+    margin-top: 10px;
+}
+.rel{
+    position: relative;
+}
+.abs{
+    position: absolute;
+}
+.main-actions{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.input-label{
+    display: inline-block;
+    font-weight: 400;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+.doc-title{
+    font-size: 12px;
+    font-weight: 400;
+    color: #A0A0A0;
+    padding-bottom: 5px;
+}
+.btlr{
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+.cp{
+    cursor: pointer;
 }
 /* width */
 ::-webkit-scrollbar {
