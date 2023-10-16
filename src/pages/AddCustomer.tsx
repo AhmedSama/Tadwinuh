@@ -9,10 +9,10 @@ const dumy=[
 ]
 const AddCustomer = () => {
   return (
-    <div className="input-fields-container">
+    <div className="input-fields-container p-container">
         <div className="input-fields">
             <Input labelText={"Name"} />
-            <Input labelText={"Phone number"} />
+            <Input type="phone" labelText={"Phone number"} />
             <SelectOption labelText={"Account Type"} options={dumy} />
         </div>
         <div className="input-fields mt">

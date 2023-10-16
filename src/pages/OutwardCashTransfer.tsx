@@ -31,7 +31,7 @@ const OutwardCashTransfer = () => {
         <div className="title-header btlr">
             <p>Purchased currency</p>
         </div>
-        <div className="input-fields-container">
+        <div className="input-fields-container p-container">
             <div className="input-fields">
                 <Input type="number" labelText={"Amount"} />
                 <Input type="number" labelText={"Percentage"} />
@@ -51,7 +51,7 @@ const OutwardCashTransfer = () => {
             </div>
         </div>
         <hr />
-        <div className="input-fields-container">
+        <div className="input-fields-container p-container">
             <div className="input-fields">
             <SelectOption labelText={"Client"} options={dummy1} />
             <SelectOption labelText={"Dispatcher"} options={dummy2} />

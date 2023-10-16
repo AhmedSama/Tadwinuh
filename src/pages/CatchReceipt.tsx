@@ -12,7 +12,7 @@ const CatchReceipt = () => {
         <div className="title-header btlr">
             <p>Date of money transfer</p>
         </div>
-        <div className="input-fields-container">
+        <div className="input-fields-container p-container">
             <div className="input-fields">
                 <SelectOption labelText={"Currency"} options={dummy2} />
                 <SelectOption labelText={"Account name"} options={dummy2} />

@@ -20,7 +20,7 @@ const TransactionCurrencies = () => {
         <div className="title-header btlr">
             <p>Purchased currency</p>
         </div>
-        <div className="input-fields-container">
+        <div className="input-fields-container p-container">
             <div className="input-fields">
                 <SelectOption labelText={"Currency"} options={currencyOptions} />
                 <Input type="number" labelText={"Exchange rate"} />
@@ -35,7 +35,7 @@ const TransactionCurrencies = () => {
         <div className="title-header">
             <p>Purchased currency</p>
         </div>
-        <div className="input-fields-container">
+        <div className="input-fields-container p-container">
             <div className="input-fields">
                 <SelectOption labelText={"Currency type"} options={currencyOptions} />
                 <Input type="number" labelText={"Exchange rate"} />

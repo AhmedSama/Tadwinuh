@@ -51,7 +51,7 @@ const data = [
 const MultipleIncoming = () => {
   return (
     <div>
-    <div className="input-fields-container">
+    <div className="input-fields-container p-container">
         <div className="input-fields">
             <div>
                 <SelectOption labelText={"Company"} options={currencyOptions} />

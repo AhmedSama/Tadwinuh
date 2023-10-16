@@ -37,7 +37,7 @@ const data = [
 const MultipleOutcoming = () => {
   return (
     <div>
-    <div className="input-fields-container">
+    <div className="input-fields-container p-container">
         <div className="input-fields" style={{alignItems:"flex-start"}}>
             
             <Input labelText={"Note"} textArea />

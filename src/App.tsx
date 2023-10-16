@@ -25,6 +25,9 @@ import ViewConversionDocument from "./pages/ViewConversionDocument"
 import SplitedTable from "./components/SplitedTable"
 import TransferringCashFromCashierToTreasury from "./pages/TransferringCashFromCashierToTreasury"
 import AddCustomer from "./pages/AddCustomer"
+import User from "./pages/User"
+import Currency from "./pages/Currency"
+import ChangePassword from "./pages/ChangePassword"
 
 const currencyOptions = [
   'IQD - Iraqi Dinnar',
@@ -197,7 +200,9 @@ function App() {
               </div>
               <div className="user">
                 <p className="user-name">Tadwinuh HR</p>
-                <img className="user-img" src={girl} alt="" />
+                <div style={{width:40,height:40,overflow:"hidden"}}>
+                  <img className="user-img" src={girl} alt="" />
+                </div>
               </div>
             </div>
         </div>
@@ -214,7 +219,7 @@ function App() {
                 </div>
           </div>
           <div className="main-container">
-              <AddCustomer />
+              <User />
             <div className="main-actions p">
                 <button className="btn">Save</button>
                 <button className="btn secondary">New</button>
