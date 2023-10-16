@@ -23,6 +23,8 @@ import MultipleOutcoming from "./pages/MultipleOutcoming"
 import CatchReceipt from "./pages/CatchReceipt"
 import ViewConversionDocument from "./pages/ViewConversionDocument"
 import SplitedTable from "./components/SplitedTable"
+import TransferringCashFromCashierToTreasury from "./pages/TransferringCashFromCashierToTreasury"
+import AddCustomer from "./pages/AddCustomer"
 
 const currencyOptions = [
   'IQD - Iraqi Dinnar',
@@ -212,7 +214,7 @@ function App() {
                 </div>
           </div>
           <div className="main-container">
-              <SplitedTable />
+              <AddCustomer />
             <div className="main-actions p">
                 <button className="btn">Save</button>
                 <button className="btn secondary">New</button>

@@ -3,11 +3,13 @@ import React, { useState, useId,ChangeEvent } from "react";
 
 type InputProps = {
   labelText?: string | null;
+  labelTextAlign?: "start" | "center" | "end",
   placeholder?: string;
   type?: "text" | "password" | "email" | "number" | "date";
   textAlign?: "left" | "center" | "right";
   onChange?: (text: string) => void;
-  textArea? : boolean
+  textArea? : boolean,
+  className?:string,
 };
 
 const Input: React.FC<InputProps> = ({
@@ -16,7 +18,9 @@ const Input: React.FC<InputProps> = ({
   type = "text",
   textAlign = "left",
   onChange,
-  textArea = false
+  textArea = false,
+  labelTextAlign="start",
+  className
 }: InputProps) => {
   const [text, setText] = useState<string>("");
 
@@ -24,7 +28,15 @@ const Input: React.FC<InputProps> = ({
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const newText = e.target.value;
-    setText(newText);
+    if(type === "number"){
+      const formattedValue = newText.replace(/[^0-9.]/g, '');
+      // Format the numeric value with commas
+      const numberWithCommas = formattedValue.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      setText(numberWithCommas)
+    }
+    else{
+      setText(newText);
+    }
     if(onChange)
       onChange(newText);
   };
@@ -37,9 +49,9 @@ const Input: React.FC<InputProps> = ({
 
 
   return (
-    <div className="input-container">
+    <div className={"input-container "+className}>
       {labelText && (
-        <label className="input-label" htmlFor={id}>
+        <label style={{textAlign:labelTextAlign,display:"block"}} className="input-label" htmlFor={id}>
           {labelText}
         </label>
       )}
@@ -60,7 +72,7 @@ const Input: React.FC<InputProps> = ({
           placeholder={placeholder}
           id={id}
           className="input-field"
-          type={type}
+          type={type === "number" ? "text" : type}
         />
 
       }

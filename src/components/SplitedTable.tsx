@@ -28,9 +28,15 @@ const data = [
 ]
 const SplitedTable = () => {
   return (
-    <div style={{display:"flex", alignItems:"center"}} className="">
-        <Table titles={titles} data={data} borderR />
-        <Table titles={titles} data={data} />
+    <div className="flex align-center">
+        <div style={{flex:1}}>
+            <h4 className="table-title">Fund balances</h4>
+            <Table titles={titles} data={data} borderR />
+        </div>
+        <div style={{flex:1}}>
+            <h4 className="table-title">Treasury balances</h4>
+            <Table titles={titles} data={data} />
+        </div>
     </div>
   )
 }

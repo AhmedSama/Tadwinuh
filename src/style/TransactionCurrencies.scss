@@ -9,9 +9,10 @@
 .input-fields-container{
     padding: 1rem 4rem;
     background-color: white;
-    .input-fields{
-        display: flex;
-        align-items: flex-end;
-        gap: 10px;
-    }
+}
+.input-fields{
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    flex: 1;
 }
