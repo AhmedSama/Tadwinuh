@@ -1,6 +1,5 @@
 // SelectOption.tsx
-import React, { useState, useEffect, useRef, MouseEvent } from 'react';
-import { HiSelector } from 'react-icons/hi';
+import React, { useState, useEffect, useRef } from 'react';
 import {BiCheck} from 'react-icons/bi'
 import {IoIosArrowDown,IoIosArrowUp} from "react-icons/io"
 

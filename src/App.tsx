@@ -29,6 +29,9 @@ import User from "./pages/User"
 import Currency from "./pages/Currency"
 import ChangePassword from "./pages/ChangePassword"
 
+import { Link, Route, Routes, useLocation } from 'react-router-dom';
+
+
 const currencyOptions = [
   'IQD - Iraqi Dinnar',
   'USD - United States Dollar',
@@ -148,6 +151,7 @@ function App() {
   const [currentPage,setCurrentPage] = useState<string|null>(null)
   const theme = useSelector((state:RootState) => state.theme)
   const dispatch = useDispatch()
+  const location = useLocation();
   function toggleTheme(theme:string) {
     dispatch(setTheme(theme))
   }
@@ -174,8 +178,18 @@ function App() {
 
           <nav className="sidebar-nav">
             {
-              <Tree setPage={(text:string) => setCurrentPage(text)} page={currentPage} items={pages} />
+              // <Tree setPage={(text:string) => setCurrentPage(text)} page={currentPage} items={pages} />
             }
+            <ul>
+              
+              <ListItem icon={<BsCurrencyExchange />} text="Buy and sell currencies">
+                  <ListItem icon={<BsCurrencyExchange />} active={location.pathname === "/buy"} to="/buy" text="Buy currencies" />
+                  <ListItem icon={<BsCurrencyExchange />} active={location.pathname === "/sell"} to="/sell" text="Sell currencies" />
+                  <ListItem icon={<BsCurrencyExchange />} active={location.pathname === "/buyfast"} to="/buyfast" text="Buy currencies quick add" />
+                  <ListItem icon={<BsCurrencyExchange />} active={location.pathname === "/sellfast"} to="/sellfast" text="Sell currencies quick add" />
+                  <ListItem icon={<BsCurrencyExchange />} active={location.pathname === "/transaction"} to="/transaction" text="Transaction currencies" />                  
+              </ListItem>
+            </ul>
           </nav>
 
           <div className="sidebar-footer">
@@ -219,7 +233,18 @@ function App() {
                 </div>
           </div>
           <div className="main-container">
-              <Sells />
+          <Routes>
+            <Route path="/" element={<Sells />} />
+            <Route path="/sell" element={<Sells />} />
+            <Route path="/buy" element={<Sells />} />
+            <Route path="/transaction" element={<TransactionCurrencies />} />
+            <Route path="/sellfast" element={<SellCurrencyFastEntry />} />
+            <Route path="/buyfast" element={<SellCurrencyFastEntry />} />
+            <Route path="/user" element={<User />} />
+            <Route path="/currency" element={<Currency />} />
+            <Route path="/add-customer" element={<AddCustomer />} />
+            {/* Add more routes for other pages/components */}
+          </Routes>
             <div className="main-actions p">
                 <button className="btn">Save</button>
                 <button className="btn secondary">New</button>
