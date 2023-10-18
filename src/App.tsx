@@ -29,7 +29,7 @@ import User from "./pages/User"
 import Currency from "./pages/Currency"
 import ChangePassword from "./pages/ChangePassword"
 
-import { Link, Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 
 
 const currencyOptions = [
@@ -46,108 +46,7 @@ const currencyOptions = [
   'SGD - Singapore Dollar',
 ];
 
-const pagesData = [
-  {
-    name : "Buy and sell currencies",
-    isPage : false,
-    isActive : false,
-    icon : <BsCurrencyExchange />,
-    subPages : [
-      {
-        name : "Buy currencies",
-        isPage : true,
-        isActive : false,
-        icon : <BsCurrencyExchange />,
-        subPages : null
-      },
-      {
-        name : "Sell currencies",
-        isPage : true,
-        isActive : true,
-        icon : <BsCurrencyExchange />,
-        subPages : null
-      },
-      {
-        name : "Buy currencies quick add",
-        isPage : true,
-        isActive : false,
-        icon : <BsCurrencyExchange />,
-        subPages : null
-      },
-      {
-        name : "Sell currencies quick add",
-        isPage : true,
-        isActive : false,
-        icon : <BsCurrencyExchange />,
-        subPages : null
-      },
-      {
-        name : "Transaction currencies",
-        isPage : true,
-        isActive : false,
-        icon : <BsCurrencyExchange />,
-        subPages : null
-      },
-    ]
-  },
-  {
-    name : "Transaction",
-    isPage : false,
-    isActive : false,
-    icon : <BsCurrencyExchange />,
-    subPages : [
-
-    ]
-  },
-  {
-    name : "Cash",
-    isPage : false,
-    isActive : false,
-    icon : <BsCurrencyExchange />,
-    subPages : [
-
-    ]
-  },
-  {
-    name : "Add user",
-    isPage : false,
-    isActive : false,
-    icon : <BsCurrencyExchange />,
-    subPages : [
-
-    ]
-  },
-  {
-    name : "Financial reports",
-    isPage : false,
-    isActive : false,
-    icon : <BsCurrencyExchange />,
-    subPages : [
-
-    ]
-  },
-  {
-    name : "Exchange reports",
-    isPage : false,
-    isActive : false,
-    icon : <BsCurrencyExchange />,
-    subPages : [
-
-    ]
-  },
-  {
-    name : "Competitive reports",
-    isPage : false,
-    isActive : false,
-    icon : <BsCurrencyExchange />,
-    subPages : [
-
-    ]
-  }
-]
-
 function App() {
-  const [pages,setPages] = useState(pagesData)
   const [currentPage,setCurrentPage] = useState<string|null>(null)
   const theme = useSelector((state:RootState) => state.theme)
   const dispatch = useDispatch()
@@ -198,7 +97,7 @@ function App() {
                   <ListItem active={theme === "dark"} onClicked={()=>toggleTheme("dark")} text={"Dark"}  icon={<BsFillMoonFill/>} />
                   <ListItem active={theme === "light"} onClicked={()=>toggleTheme("light")} text={"Light"}  icon={<BsSunFill/>} />
                 </ListItem>
-                <ListItem text={"Setting"}  icon={<AiFillSetting />} />
+                <ListItem text={"Setting"} to="/user" active={location.pathname === "/user"}  icon={<AiFillSetting />} />
               </ul>
           </div>
       </aside>
