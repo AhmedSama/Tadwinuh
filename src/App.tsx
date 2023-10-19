@@ -85,7 +85,7 @@ function App() {
                   <ListItem icon={<BsCurrencyExchange />} active={location.pathname === "/buy"} to="/buy" text="Buy currencies" />
                   <ListItem icon={<BsCurrencyExchange />} active={location.pathname === "/sell"} to="/sell" text="Sell currencies" />
                   <ListItem icon={<BsCurrencyExchange />} active={location.pathname === "/buyfast"} to="/buyfast" text="Buy currencies quick add" />
-                  <ListItem icon={<BsCurrencyExchange />} active={location.pathname === "/sellfast"} to="/sellfast" text="Sell currencies quick add" />
+                  <ListItem icon={<BsCurrencyExchange />} active={location.pathname === "/add-customer"} to="/add-customer" text="Sell currencies quick add" />
                   <ListItem icon={<BsCurrencyExchange />} active={location.pathname === "/transaction"} to="/transaction" text="Transaction currencies" />                  
               </ListItem>
             </ul>

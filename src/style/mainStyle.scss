@@ -268,3 +268,20 @@ textarea {
   }
 
 
+  .loading{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border: 5px solid #520fe4;
+    border-radius: 50%;
+    border-top: 5px solid #e4bd0f;
+    animation: spin .5s ease-in-out  infinite ;
+  }
+@keyframes spin {
+    0%{
+        transform: rotateZ(0deg);
+    }
+    100%{
+        transform: rotateZ(360deg);
+    }
+}
