@@ -1,5 +1,6 @@
 import Input from "../components/Input"
 import SelectOption from "../components/SelectOption"
+import Touch from "../components/Touch";
 const currencyOptions = [
   'IQD - Iraqi Dinnar',
   'USD - United States Dollar',
@@ -19,7 +20,7 @@ const Sells = () => {
     <div>
       <p className="doc-title">Document number : 16</p>
       <div className="sells-main-container center">
-          <form>
+          {/* <form>
             <div className="divided-section">
               <Input labelText={"Document type"} type="text"  />
               <Input labelText={"Account name"} type="text"  />
@@ -34,7 +35,8 @@ const Sells = () => {
               <Input labelText={"Equivalent amount"} type="text"  />
             </div>
             <Input textArea textAlign="center"/>
-          </form>
+          </form> */}
+          <Touch />
       </div>
     </div>
   )

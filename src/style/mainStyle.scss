@@ -9,6 +9,7 @@
 @import "SellCurrencyFastEntry";
 @import "TransactionCurrencies";
 @import "SplitedTable";
+@import "grid";
 
 // @tailwind base;
 // @tailwind components;
@@ -247,6 +248,11 @@ textarea {
 .cp{
     cursor: pointer;
 }
+.prevent-select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+  }
 /* width */
 ::-webkit-scrollbar {
     width: 2px;

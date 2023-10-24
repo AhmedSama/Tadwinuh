@@ -1,0 +1,36 @@
+$cols : 5;
+.grid{
+    display: grid;
+    grid-template-columns: repeat($cols, 1fr);
+    gap: 10px;
+    .grid-item{
+        padding: 15px;
+        background-color: white;
+        text-align: center;
+        border-radius: 5px;
+        border: 1px solid #e6e6e6;
+        cursor: pointer;
+        &.active{
+            border-color: $blue;
+        }
+        &.c2{
+            grid-column: span 2;
+        }
+        &.danger{
+            background-color: red;
+            color: white;
+        }
+        &.primary{
+            background-color: $blue;
+            color: white;
+        }
+        &.span-all{
+            grid-column: span $cols;
+        }
+    }
+}
+.output{
+    background-color: #e6e6e6;
+    padding: 10px;
+    font-size: 20px;
+}

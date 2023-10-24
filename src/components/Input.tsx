@@ -1,5 +1,6 @@
 import React, { useState, useId,ChangeEvent,MouseEvent } from "react";
 import {AiFillEye,AiFillEyeInvisible} from 'react-icons/ai'
+import { formatPhoneNumber, validateNumberAndSplitThemWithCommas } from "../utils/numberFormat";
 type InputProps = {
   labelText?: string | null;
   labelTextAlign?: "start" | "center" | "end",
@@ -9,6 +10,9 @@ type InputProps = {
   onChange?: (text: string) => void;
   textArea? : boolean,
   className?:string,
+  disabled? : boolean,
+  readonly? : boolean,
+  value? : string,
 };
 
 const Input: React.FC<InputProps> = ({
@@ -19,42 +23,19 @@ const Input: React.FC<InputProps> = ({
   onChange,
   textArea = false,
   labelTextAlign="start",
-  className
+  className,
+  disabled = false,
+  readonly = false,
+  value=""
 }: InputProps) => {
-  const [text, setText] = useState<string>("");
+  const [text, setText] = useState<string>(value);
   const [typeState,setTypeState] = useState(type)
   const id = useId(); 
-  const formatPhoneNumber = (phoneNumber:string) => {
-    // Your formatting logic can go here
-    if (phoneNumber.length <= 3) {
-      return phoneNumber;
-    }
 
-    let countryKey = phoneNumber[0] === '+'  ? '+' : '';
-    countryKey = phoneNumber[0] === '0'  ? '0' : '';
-    const restOfNumber = phoneNumber.slice(countryKey.length);
-
-    let formattedNumber = countryKey;
-    for (let i = 0; i < restOfNumber.length; i += 3) {
-      if(i === 3){
-        formattedNumber += restOfNumber.slice(i, i + 4) + ' ';
-        i+=1
-      }
-      else{
-        formattedNumber += restOfNumber.slice(i, i + 3) + ' ';
-      }
-    }
-
-    return formattedNumber.trim();
-  };
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const newText = e.target.value;
     if(type === "number"){
-       // A regular expression to remove non-numeric characters
-      const formattedValue = newText.replace(/[^0-9.]/g, '');
-      // Format the numeric value with commas
-      const numberWithCommas = formattedValue.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-      setText(numberWithCommas)
+      setText(validateNumberAndSplitThemWithCommas(newText))
     }
     else if(type === "phone"){
       // Use a regular expression to remove non-numeric characters and special characters
@@ -96,7 +77,9 @@ const Input: React.FC<InputProps> = ({
         <textarea value={text}
         onChange={handleTextAreaChange}
         style={{ textAlign }}
+        disabled ={disabled}
         placeholder={placeholder}
+        readOnly={readonly}
         id={id}
         className="input-field" name="" 
          cols={10} rows={5}></textarea>
@@ -104,9 +87,11 @@ const Input: React.FC<InputProps> = ({
         <div className="flex align-center rel">
           <input
             value={text}
+            disabled ={disabled}
             onChange={handleChange}
             style={{ textAlign }}
             placeholder={placeholder}
+            readOnly={readonly}
             id={id}
             className="input-field"
             type={typeState === "number" || typeState === "phone" ? "text" : typeState}
